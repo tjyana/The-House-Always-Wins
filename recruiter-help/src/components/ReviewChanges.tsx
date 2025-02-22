@@ -170,7 +170,7 @@ export default function ReviewChanges() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="name">Name</label>
                   {hasChanged(changes.name.before, changes.name.after) && (
-                    <Badge>
+                    <Badge classname="bg-green-50 border-green-200">
                       <Check />
                       Changed
                     </Badge>
@@ -202,7 +202,7 @@ export default function ReviewChanges() {
                     changes.experience.before,
                     changes.experience.after
                   ) && (
-                    <Badge>
+                    <Badge classname="bg-green-50 border-green-200">
                       <Check />
                       Changed
                     </Badge>
@@ -211,7 +211,7 @@ export default function ReviewChanges() {
                 <textarea
                   id="experience"
                   className={
-                    "flex min-h-[80px] w-full rounded-md border px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1 border-green-200 bg-green-50 "
+                    "flex min-h-[80px] w-full rounded-md border px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1 "+hasChanged(changes.experience.before, changes.experience.after)&&"bg-green-50 border-green-200"
                   }
                   value={formatExperience(changes.experience.after)}
                   onChange={(e) =>
@@ -231,7 +231,7 @@ export default function ReviewChanges() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="notes">Notes</label>
                   {hasChanged(changes.notes.before, changes.notes.after) && (
-                    <Badge>
+                    <Badge classname="bg-green-50 border-green-200">
                       <Check />
                       Changed
                     </Badge>

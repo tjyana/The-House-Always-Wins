@@ -100,7 +100,9 @@ export default function Dashboard() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle classname="">Pending Reviews</CardTitle>
-            <Badge>{requests.length} pending</Badge>
+            <Badge classname={"bg-gray-100 text-gray-800"}>
+              {requests.length} pending
+            </Badge>
           </div>
         </CardHeader>
         <CardContent>
@@ -158,7 +160,15 @@ export default function Dashboard() {
                   </td>
                   <td className="py-4 px-6">{request.changeType}</td>
                   <td className="py-4 px-6">
-                    <Badge>
+                    <Badge
+                      classname={
+                        request.priority === "high"
+                          ? "bg-red-100 text-red-800"
+                          : request.priority === "medium"
+                          ? "bg-yellow-100 text-yellow-800"
+                          : "bg-gray-100 text-gray-800"
+                      }
+                    >
                       {request.priority === "high" && (
                         <AlertCircle className="mr-1 h-3 w-3" />
                       )}
@@ -177,10 +187,9 @@ export default function Dashboard() {
                   <td className="py-4 px-6 text-right">
                     <button
                       className={
-                        "px-4 py-2 rounded text-small " + request.status ===
-                        "in_progress"
-                          ? "bg-gray-200 text-gray-900"
-                          : "bg-black text-white"
+                        request.status === "in_progress"
+                          ? "px-2 py-2 rounded text-small bg-gray-200 text-gray-900"
+                          : "px-2 py-2 rounded text-small bg-black text-white"
                       }
                       onClick={() => handleReviewClick(request.id)}
                     >

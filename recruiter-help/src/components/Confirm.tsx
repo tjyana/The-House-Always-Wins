@@ -117,7 +117,9 @@ export default function Confirmation() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-500">Hiring Progress</span>
-                    <Badge>{candidate.confidence}% Confidence</Badge>
+                    <Badge classname="">
+                      {candidate.confidence}% Confidence
+                    </Badge>
                   </div>
                   <ProgressBar value={candidate.progress} />
                 </div>
@@ -135,7 +137,7 @@ export default function Confirmation() {
                   Changes Confirmed
                 </CardTitle>
                 <Button>
-                  <a href="/dashboard" className="flex items-center gap-2">
+                  <a href="/" className="flex items-center gap-2">
                     <ArrowLeft className="h-4 w-4" />
                     Return to Dashboard
                   </a>
