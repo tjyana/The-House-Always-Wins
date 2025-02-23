@@ -1,0 +1,51 @@
+Omar Khalid
+
+Email: omarkhalid@email.com
+
+Phone: (555) 345-6789
+Education
+
+Bachelor of Science in Information Systems
+
+Pioneer University, 2008
+Work Experience
+
+FutureSystems (2008–2012)
+
+    Junior Software Engineer (2008–2010)
+        Developed REST APIs with Flask for a supply chain management tool.
+        Automated ETL processes with Airflow, improving data freshness.
+        Assisted in load testing, identifying performance limits early.
+    Software Engineer (2010–2012)
+        Built a forecasting dashboard with React and Chart.js for stakeholders.
+        Optimized API throughput by 25% with connection pooling.
+        Supported team adoption of Git workflows and branching strategies.
+
+TechStart (2012–2017)
+
+    Software Engineer (2012–2014)
+        Created a workflow automation tool using C++ and Qt for internal use.
+        Integrated SSO with Okta, simplifying user access across systems.
+        Worked with DevOps to deploy applications via Ansible playbooks.
+    Senior Software Engineer (2014–2017)
+        Led a team to develop a cross-platform desktop app with Electron.
+        Reduced build times by 40% through dependency optimization.
+        Introduced static analysis tools, catching errors pre-deployment.
+
+GlobalSoft (2017–2022)
+
+    Senior Software Engineer (2017–2019)
+        Designed a real-time inventory system using Scala and Akka.
+        Improved system resilience with circuit breakers and retries.
+        Partnered with analysts to integrate BI tools like Tableau.
+    Tech Lead (2019–2022)
+        Managed a team of 8 engineers, delivering a warehouse management solution.
+        Led adoption of Helm charts for Kubernetes, streamlining deployments.
+        Established a bug triage process, reducing backlog by 20%.
+
+InnovateTech (2022–Present)
+
+    Principal Software Engineer
+        Overseeing development of a low-latency trading platform.
+        Mentoring engineers on distributed systems and performance tuning.
+        Collaborating with compliance teams to meet regulatory standards.
