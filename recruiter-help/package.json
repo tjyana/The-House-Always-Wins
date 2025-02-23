@@ -1,0 +1,17 @@
+{
+  "name": "morph-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build -w .morph/frontend"
+  },
+  "dependencies": {
+    "lucide-react": "^0.475.0",
+    "react-router-dom": "^7.2.0",
+    "shadcn-ui": "^0.9.4"
+  },
+  "workspaces": [
+    ".morph/frontend"
+  ]
+}
