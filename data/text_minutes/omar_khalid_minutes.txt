@@ -1,0 +1,51 @@
+Recruiter: Hey Omar Khalid, it's great to see you. How’s your day going so far?
+
+Omar: Hi, it's going well—thanks for asking. I'm excited to catch up and chat about my journey.
+
+Recruiter: Awesome. Let’s start at the beginning—your time at Pioneer University. I see you earned your Bachelor’s in Information Systems back in 2008. What was that experience like for you?
+
+Omar: It was a really solid experience. At Pioneer, I got a good mix of theoretical knowledge and hands-on projects. That foundation was key when I jumped into the professional world right after graduation.
+
+Recruiter: I can imagine. So soon after, you joined FutureSystems. I noticed you started as a Junior Software Engineer in 2008. How did that role shape your early career?
+
+Omar: At FutureSystems, my first role was pretty dynamic. I worked on developing REST APIs using Flask for a supply chain management tool. I also automated ETL processes with Airflow, which really boosted our data freshness. And, I remember doing a lot of load testing to understand our performance limits early on.
+
+Recruiter: That sounds like a hands-on introduction to the field. And when you moved into the Software Engineer role at FutureSystems a couple of years later, what kind of projects did you tackle?
+
+Omar: One project that really stands out was building a forecasting dashboard with React and Chart.js. It was designed to give stakeholders a clear view of trends. I also optimized our API throughput by about 25% using connection pooling, and I helped the team get on board with more efficient Git workflows.
+
+Recruiter: Wow, a 25% boost in API performance is impressive, especially in those early days. After FutureSystems, you transitioned to TechStart in 2012. How did that shift come about, and what were you working on there?
+
+Omar: Moving to TechStart was an exciting shift. Initially, as a Software Engineer, I developed a workflow automation tool using C++ and Qt. It was all about streamlining internal processes. I also integrated SSO using Okta, which made user access much simpler, and collaborated with DevOps to deploy our apps using Ansible playbooks.
+
+Recruiter: Sounds like you were getting involved in a wide range of projects. And then you stepped up as a Senior Software Engineer at TechStart, right?
+
+Omar: Yes, exactly. In that role, I led a team developing a cross-platform desktop application with Electron. One of our proudest moments was cutting build times by 40% through dependency optimization. I also introduced static analysis tools that really helped us catch errors before deployment.
+
+Recruiter: Cutting build times by 40% is no small feat. That must have had a huge impact on your team's efficiency. Then came your move to GlobalSoft in 2017. Tell me a bit about your work there.
+
+Omar: At GlobalSoft, I started as a Senior Software Engineer. One of my key projects was designing a real-time inventory system using Scala and Akka. We built in resilience using circuit breakers and retries to manage failures. Plus, I worked closely with analysts to integrate BI tools like Tableau, which helped us make data-driven decisions.
+
+Recruiter: That’s fascinating—integrating real-time data with BI tools sounds challenging but rewarding. And I see you eventually became a Tech Lead there. How did that change things for you?
+
+Omar: It was a big step. As Tech Lead, I managed a team of eight engineers. We delivered a warehouse management solution that streamlined our operations. I also led the initiative to adopt Helm charts for Kubernetes, which really improved our deployment processes. Not to mention, I set up a bug triage process that trimmed our backlog by 20%.
+
+Recruiter: It’s great to see someone so adept at both the technical and leadership aspects of the job. Now, you’re at InnovateTech as a Principal Software Engineer. What does your current role involve?
+
+Omar: At InnovateTech, I’m overseeing the development of a low-latency trading platform. It’s a high-stakes project that demands top-notch performance. I also mentor engineers on distributed systems and performance tuning, which I find really fulfilling. On top of that, I work closely with our compliance teams to make sure we meet all regulatory standards.
+
+Recruiter: That sounds incredibly dynamic. Balancing high-performance development with mentorship and compliance is no small task. How do you manage to keep up with all these areas?
+
+Omar: I focus on continuous learning and staying curious. Whether it’s through new courses, reading up on the latest in distributed systems, or simply collaborating with my team, I always find ways to keep my skills sharp and stay updated with emerging trends.
+
+Recruiter: I love that approach. Your career—from pioneering REST APIs and dashboards at FutureSystems to leading teams and innovating at InnovateTech—really showcases your versatility. It’s been fantastic hearing your story, Omar.
+
+Omar: Thanks a lot. I appreciate the chance to talk through it, and it's been great sharing these experiences with you.
+
+Recruiter: Likewise, Omar. I’m looking forward to seeing how we can take this conversation further. Oh, and whats your email address and phone number again?
+
+Omar: Sure thing, its omarkhalid@email.com and my number is (555) 345-6789
+
+Recruiter: Excellent. Thanks again for your time today.
+
+Omar: Thank you. I look forward to the next steps.

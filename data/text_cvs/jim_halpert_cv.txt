@@ -1,0 +1,29 @@
+Jim Halpert
+Email: jhalpert@datainsight.com
+Phone: (555) 222-3333
+LinkedIn: https://linkedin.com/in/jimhalpert-nonexistent
+GitHub: https://github.com/jimhalpert-nonexistent
+
+EDUCATION
+Bachelor of Science in Statistics
+College of Analytics, 2002
+
+WORK EXPERIENCE
+
+Prime Analytics (2003–2007)
+Data Analyst
+• Analyzed datasets to derive actionable insights for client projects.
+• Developed reporting dashboards that improved decision-making speed.
+• Assisted in the design of data collection processes and quality controls.
+
+Insightful Metrics (2007–2012)
+Senior Data Analyst
+• Led projects to integrate advanced statistical models into business forecasts.
+• Trained junior analysts on data visualization and interpretation best practices.
+• Collaborated with IT teams to implement data warehousing solutions.
+
+NextGen Data (2012–Present)
+Business Intelligence Manager
+• Managed a team to deliver strategic insights using BI tools.
+• Drove improvements in data quality that enhanced reporting accuracy.
+• Coordinated cross-departmental efforts to integrate data into strategic planning.

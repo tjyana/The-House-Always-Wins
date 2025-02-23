@@ -1,0 +1,47 @@
+Carlos Rivera
+
+Email: carlosrivera@email.com
+
+Phone: (555) 234-5678
+Education
+
+Master of Science in Computer Science
+
+Visionary Institute, 2007
+Work Experience
+
+GlobalSoft (2007–2011)
+
+    Software Engineer (2007–2009)
+        Built scalable APIs using Go and MongoDB for a logistics platform.
+        Automated deployment processes with Bash scripts, saving 10 hours weekly.
+        Worked with support teams to resolve critical customer issues quickly.
+    Senior Software Engineer (2009–2011)
+        Redesigned a notification system with WebSocket, improving delivery speed by 50%.
+        Led a small team to integrate geolocation services, enhancing user features.
+        Conducted performance audits, identifying bottlenecks in legacy code.
+
+FutureSystems (2011–2016)
+
+    Senior Software Engineer (2011–2013)
+        Developed a predictive maintenance tool using Python and TensorFlow.
+        Optimized container orchestration with Docker Swarm, boosting scalability.
+        Collaborated with hardware engineers to integrate IoT device data.
+    Tech Lead (2013–2016)
+        Managed a team of 6 engineers, launching a customer analytics suite.
+        Transitioned team to Kanban, improving workflow visibility and throughput.
+        Established a disaster recovery plan, reducing downtime risks.
+
+TechGiant (2016–2021)
+
+    Principal Software Engineer
+        Pioneered a serverless architecture using AWS Lambda for a media streaming service.
+        Mentored engineers on cloud best practices, enhancing team expertise.
+        Led cross-team efforts to reduce latency in content delivery by 25%.
+
+InnovateTech (2021–Present)
+
+    Engineering Manager
+        Supervising two teams (12 engineers) building a next-gen CRM system.
+        Driving adoption of GraphQL to streamline API interactions.
+        Partnering with HR to improve technical hiring and onboarding processes.
