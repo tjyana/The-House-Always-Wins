@@ -11,7 +11,7 @@ import Card from "./Card";
 import CardContent from "./CardContent";
 import CardHeader from "./CardHeader";
 import CardTitle from "./CardTitle";
-import { AIChat } from "./AiChat";
+import { AIChat } from "./AIChat";
 import { AddTranscript } from "./AddTranscript";
 import { loadData } from "@morph-data/components";
 
