@@ -33,3 +33,9 @@ You can set it up by running the following command:
 ```bash
 morph config
 ```
+
+
+Notes to self: 
+- index.mdx: first page 
+- Table.tsx: file where all the components are orchestrated together for 1st page
+

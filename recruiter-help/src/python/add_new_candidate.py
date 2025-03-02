@@ -5,6 +5,11 @@ from langchain_core.output_parsers import JsonOutputParser
 from pydantic import BaseModel, Field
 import sqlite3
 from contextlib import closing
+from chat import langchain_chat
+
+
+
+transcript = langchain_chat(context={"vars": {"prompt": "Hello, how are you doing today?"}})
 
 def extract_candidate_info(transcript):
     load_dotenv()
