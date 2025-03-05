@@ -1,0 +1,16 @@
+{
+  "name": "morph-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build -w .morph/frontend"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "lucide-react": "^0.475.0"
+  },
+  "workspaces": [
+    ".morph/frontend"
+  ]
+}
