@@ -1,0 +1,2 @@
+candidate_id, first_name, last_name, task, done
+2, 'John', 'Doe', 'draft email', 1

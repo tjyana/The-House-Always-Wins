@@ -62,7 +62,6 @@ export function AddTranscript() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [transcript, setTranscript] = useState({});
-  // const transcriptData = postData("transcript");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);

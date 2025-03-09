@@ -5,6 +5,7 @@ from langchain_core.output_parsers import JsonOutputParser
 from pydantic import BaseModel, Field
 import sqlite3
 from contextlib import closing
+import pandas as pd
 
 class Task(BaseModel):
     task: int = Field(
@@ -69,7 +70,7 @@ class TaskDb:
             email_draft TEXT,
             created_at TEXT DEFAULT (DATETIME('now')),
             FOREIGN KEY (candidate_id) REFERENCES Candidates(candidate_id)
-        )
+        );
         """)
             cursor.execute("""
                 INSERT INTO Tasks (candidate_id, task, email_draft, done)
@@ -81,3 +82,31 @@ class TaskDb:
     def add_tasks(self, candidate_id: int, tasks: Tasks):
         for task in tasks['entries']:
             self.add_task(candidate_id, task)
+    def get_tasks(self):
+        with closing(sqlite3.connect(self.db_path)) as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT t.task_id, t.candidate_id, c.first_name, c.last_name, t.task, t.email_draft, t.done
+                FROM Tasks AS t inner join Candidates as c
+                           on t.candidate_id=c.candidate_id       
+            """)
+            tasks = cursor.fetchall()
+            data = pd.DataFrame(tasks, columns=['task_id', 'candidate_id', 'first_name','last_name', 'task', 'email_draft', 'done'])
+            print(data.to_json(orient='records'))
+            # Convert DataFrame to JSON with each row as a separate record
+            return data.to_json(orient='records')
+
+    def get_status_count(self):
+
+        with closing(sqlite3.connect(self.db_path)) as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT  done as status, count(done) as count
+                           from Tasks 
+                           GROUP BY done         
+            """)
+            tasks = cursor.fetchall()
+            data = pd.DataFrame(tasks, columns=['status', 'count'])
+            print(data.to_json(orient='records'))
+            # Convert DataFrame to JSON with each row as a separate record
+            return data.to_json(orient='records')

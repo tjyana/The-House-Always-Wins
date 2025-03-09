@@ -1,8 +1,46 @@
+from pydantic import BaseModel, Field
+from typing import List
+import sqlite3
+from contextlib import closing
+from langchain_core.output_parsers import JsonOutputParser
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
-from ..models.Experience import WorkExperience
+
+class WorkExperienceSQLEntry(BaseModel):
+    company: str = Field(..., description="The company that the candidate worked at during this time")
+    start_date: str = Field(..., description="Start date working at the company, in ISO8601 format")
+    end_date: str = Field(..., description="End date working at the company, in ISO8601 format")
+    description: str = Field(..., description="Detailed tenure experience description.")
+
+class WorkExperience(BaseModel):
+    entries: List[WorkExperienceSQLEntry] = Field(..., description="List of work experience SQL entries")
+
+
+class WorkExperienceDB:
+    def __init__(self, db_path: str):
+        self.db_path = db_path
+
+    def add_work_experience(self, candidate_id: int, work_experience) -> None:
+        """
+        Insert work experience records for a candidate into the database.
+        """
+
+        print('work experience: ', work_experience)
+        for entry in work_experience["entries"]:
+            with closing(sqlite3.connect(self.db_path)) as conn:
+                cursor = conn.cursor()
+                cursor.execute(
+                    """
+                    INSERT INTO WorkExperience (candidate_id, company, start_date, end_date, description)
+                    VALUES (?, ?, ?, ?, ?)
+                    """,
+                    (candidate_id, entry["company"], entry["start_date"], entry["end_date"], entry["description"])
+                )
+                conn.commit()
+        print(f"Added {len(work_experience)} records for candidate ID: {candidate_id}")
+
 
 class WorkExperienceExtractor:
     def __init__(self, model_name="gpt-4o"):

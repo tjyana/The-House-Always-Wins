@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { ArrowUpDown, Filter, AlertCircle, Clock, Search } from "lucide-react";
 import Button from "../components/Button";
 import Avatar from "./Avatar";
@@ -13,7 +13,7 @@ import CardHeader from "./CardHeader";
 import CardTitle from "./CardTitle";
 import { AIChat } from "./AiChat";
 import { AddTranscript } from "./AddTranscript";
-import { loadData } from "@morph-data/components";
+import { loadData, postData } from "@morph-data/components";
 
 interface ChangeRequest {
   id: string;
@@ -38,7 +38,21 @@ interface CardData {
 }
 
 export default function Dashboard() {
-  const metrics = loadData("example_metrics", "json");
+  const [tasks, setTasks] = useState([]);
+  const [counts, setCounts] = useState([]);
+  let getTasks = async () => {
+    const res = await axios.post(
+      "http://localhost:8080/cli/run/tasks_data/json",
+      {}
+    );
+    setTasks(JSON.parse(res.data.data.items[0].value));
+    setCounts(JSON.parse(res.data.data.items[0].counts));
+  };
+  useEffect(() => {
+    getTasks();
+  }, []);
+  console.log(tasks);
+  console.log(counts);
   const [requests] = useState<ChangeRequest[]>([
     {
       id: "1",
@@ -140,14 +154,26 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="flex gap-2 ">
-        {cardsData.map((card, index) => (
+        {counts.map((count: any, index: number) => (
           <Card key={index}>
             <CardHeader>
-              <CardTitle classname="text-sm font-sm">{card.title}</CardTitle>
+              <CardTitle classname="text-sm font-sm">
+                {count?.status == 1
+                  ? "Completed"
+                  : count?.status == 2
+                  ? "Drafting emails & analyzing"
+                  : "Pending"}
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{card.count}</div>
-              <p className="text-xs text-muted-foreground">{card.subtitle}</p>
+              <div className="text-2xl font-bold">{count?.count}</div>
+              <p className="text-xs text-muted-foreground">
+                {count?.status == 1
+                  ? "+12 from yesterday"
+                  : count?.status == 2
+                  ? "AI Processing"
+                  : "8 require human action"}
+              </p>
             </CardContent>
           </Card>
         ))}
@@ -193,58 +219,57 @@ export default function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {requests.map((request) => (
+              {tasks.map((task: any, i) => (
                 <tr
-                  key={request.id}
+                  key={i}
                   className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                 >
                   <td className="py-4 px-6">
                     <div className="flex items-center gap-3">
                       <Avatar>
-                        {request.candidate.avatar && (
-                          <AvatarImage src={request.candidate.avatar} />
+                        JD
+                        {/* {task.candidate.avatar && (
+                          <AvatarImage src={task.candidate.avatar} />
                         )}
 
-                        {!request.candidate.avatar &&
-                          request.candidate.name.charAt(0)}
+                        {!task.candidate.avatar &&
+                          task.candidate.name.charAt(0)} */}
                       </Avatar>
                       <div>
                         <div className="font-medium text-gray-900 dark:text-white">
-                          {request.candidate.name}
+                          {task?.first_name}
                         </div>
                         <div className="text-sm text-gray-500 dark:text-gray-400">
-                          {request.candidate.role}
+                          {task?.last_name}
                         </div>
                       </div>
                     </div>
                   </td>
-                  <td className="py-4 px-6">{request.salary}</td>
-                  <td className="py-4 px-6">{request.position}</td>
+                  <td className="py-4 px-6">{task?.salary}</td>
+                  <td className="py-4 px-6">{task?.position}</td>
                   <td className="py-4 px-6">
-                    {request.last_completed == 1
-                      ? "Initial Call"
-                      : "AI Decision"}
+                    {task?.task == 1 ? "Initial Call" : "AI Decision"}
                   </td>
                   <td className="py-4 px-6">
                     <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
                       <Clock className="h-3 w-3" />
-                      <span className="text-sm">{request.lastUpdated}</span>
+                      <span className="text-sm">{task?.lastUpdated}</span>
                     </div>
                   </td>
                   <td className="py-4 px-6">
                     <Badge
                       classname={
-                        request.owner === 3
+                        task?.owner === 3
                           ? "bg-red-100 text-red-800"
-                          : request.owner === 1
+                          : task?.owner === 1
                           ? "bg-yellow-100 text-yellow-800"
                           : "bg-gray-100 text-gray-800"
                       }
                     >
-                      {request.owner === 1 && (
+                      {task?.owner === 1 && (
                         <AlertCircle className="mr-1 h-3 w-3" />
                       )}
-                      {request.owner === 3
+                      {task?.owner === 3
                         ? "Human Action Required"
                         : "AI Processing"}
                     </Badge>
@@ -253,24 +278,29 @@ export default function Dashboard() {
                     {
                       <button
                         className={
-                          request.action_status === 1 ||
-                          request.action_status === 2
+                          task.task == 1 || task.task == 2
                             ? "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3"
                             : "px-2 py-2 rounded-lg disabled"
                         }
-                        onClick={() => handleReviewClick(request.id)}
+                        onClick={() => handleReviewClick(task.task_id)}
                       >
-                        {request.action_status === 1
+                        {task?.task == 1
                           ? "Review & Send Email"
-                          : request.action_status === 2
+                          : task?.task === 2
                           ? "Review & Send Pitch"
-                          : request.action_status === 3
+                          : task?.task === 3
                           ? "Draft Email"
                           : "Ananlyzing"}
                       </button>
                     }
                   </td>
-                  <td>{request.next_action}</td>
+                  <td>
+                    {task?.task == 1
+                      ? "pitch a company position"
+                      : task?.task == 2
+                      ? "will need to be done over email or in a follow up meeting"
+                      : " keep in touch with a recruiter"}
+                  </td>
                 </tr>
               ))}
             </tbody>
