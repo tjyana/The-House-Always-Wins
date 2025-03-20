@@ -73,11 +73,11 @@ export function AddTranscript() {
     setIsProcessing(false);
     setOpen(false);
     // transcriptData.run(transcript);
-    const res = await axios.post(
-      "http://localhost:8080/cli/run/transcript",
-      transcript
-    );
-    console.log(res);
+    // const res = await axios.post(
+    //   "http://localhost:8080/cli/run/transcript",
+    //   transcript
+    // );
+    // console.log(res);
     postData("transcript").run({ transcript: transcript });
   };
 

@@ -1,4 +1,5 @@
 import os
+import json
 import morph
 import sqlite3
 from dotenv import load_dotenv
@@ -14,14 +15,14 @@ from src.python.utils.Task import TaskDb, TaskExtractor
 import pandas as pd
 from morph import MorphGlobalContext
 
-@morph.func(name='tasks_data')
-def tasks_data(context:MorphGlobalContext):
-    DB_PATH = "./db/candidate.db"
-    task_db = TaskDb(db_path=DB_PATH)
-    tasks_list = task_db.get_tasks()
-    task_counts = task_db.get_status_count()
-    print(tasks_list)
-    return {"value": tasks_list, "counts":task_counts}
+# @morph.func(name='tasks_data')
+# def tasks_data(context:MorphGlobalContext):
+#     DB_PATH = "./db/candidate.db"
+#     task_db = TaskDb(db_path=DB_PATH)
+#     tasks_list = task_db.get_tasks()
+#     task_counts = task_db.get_status_count()
+#     print(tasks_list)
+#     return {"value": tasks_list, "counts":task_counts}
  
 
 @morph.func
@@ -54,4 +55,4 @@ def transcript(context:MorphGlobalContext):
     task_info = task_extraxtor.extract(transcript=context.vars['transcript'])
     print(f"{task_info = }")
     task_db.add_task(candidate_id=candidate_id, task=task_info)
-    return {'variable':context.vars['transcript']}
+    return {'variable':context}

@@ -42,11 +42,13 @@ export default function Dashboard() {
   const [counts, setCounts] = useState([]);
   let getTasks = async () => {
     const res = await axios.post(
-      "http://localhost:8080/cli/run/tasks_data/json",
+      "http://localhost:8080/cli/run/tasksdata/html",
       {}
     );
-    setTasks(JSON.parse(res.data.data.items[0].value));
-    setCounts(JSON.parse(res.data.data.items[0].counts));
+    let parse_data = JSON.parse(res.data.data);
+
+    setTasks(parse_data.value);
+    setCounts(parse_data.counts);
   };
   useEffect(() => {
     getTasks();

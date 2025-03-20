@@ -87,14 +87,14 @@ class TaskDb:
             cursor = conn.cursor()
             cursor.execute("""
                 SELECT t.task_id, t.candidate_id, c.first_name, c.last_name, t.task, t.email_draft, t.done
-                FROM Tasks AS t inner join Candidates as c
+                FROM Tasks AS t left join Candidates as c
                            on t.candidate_id=c.candidate_id       
             """)
             tasks = cursor.fetchall()
             data = pd.DataFrame(tasks, columns=['task_id', 'candidate_id', 'first_name','last_name', 'task', 'email_draft', 'done'])
             print(data.to_json(orient='records'))
             # Convert DataFrame to JSON with each row as a separate record
-            return data.to_json(orient='records')
+            return data.to_dict(orient='records')
 
     def get_status_count(self):
 
@@ -109,4 +109,4 @@ class TaskDb:
             data = pd.DataFrame(tasks, columns=['status', 'count'])
             print(data.to_json(orient='records'))
             # Convert DataFrame to JSON with each row as a separate record
-            return data.to_json(orient='records')
+            return data.to_dict(orient='records')
